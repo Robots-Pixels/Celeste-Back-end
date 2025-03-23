@@ -15,9 +15,13 @@ app.use("/api/message/", messageRoute);
 app.use("/api/reservation/", bookingRoute);
 
 mongoose
-    .connect((process.env.MONGO))
+    .connect((process.env.MONGO, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }))
     .then(() => {
-        console.log("Connected to MongoDB");
+        console.log("Connected to MongoDB")
+        ;
         app.listen(3000, () => {
             console.log("Server is running on port 3000...")
         });

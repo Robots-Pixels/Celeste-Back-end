@@ -15,10 +15,8 @@ export const newReservation = async (req, res) => {
             success: true,
             message: "Reservion sent successfully"
         });
-        console.log();
 
     } catch (error) {
-        console.log(error);
         res.status(500).json({
             success: false,
             message: `Error: ${error}`
